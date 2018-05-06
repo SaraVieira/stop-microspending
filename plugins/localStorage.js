@@ -8,5 +8,5 @@ export default {
   get: () =>
     typeof window === 'undefined'
       ? []
-      : JSON.parse(window.localStorage.getItem(NAME))
+      : JSON.parse(window.localStorage.getItem(NAME)) || []
 };
