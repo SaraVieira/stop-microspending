@@ -1,18 +1,6 @@
 import Vuex from 'vuex';
 import uuidv4 from 'uuid/v4';
-
-const NAME = 'stop-microspensing';
-
-export const localStorage = {
-  set: obj =>
-    typeof window === 'undefined'
-      ? {}
-      : window.localStorage.setItem(NAME, JSON.stringify(obj)),
-  get: () =>
-    typeof window === 'undefined'
-      ? []
-      : JSON.parse(window.localStorage.getItem(NAME))
-};
+import localStorage from '~/plugins/localStorage';
 
 const createStore = () => {
   return new Vuex.Store({
