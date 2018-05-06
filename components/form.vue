@@ -1,33 +1,25 @@
 <template>
   <el-form ref="form" :model="form">
-     <el-alert
-      v-if="$store.state.payments.length"
-      :closable="false"
-      title="Monthly Spending"
-      type="info"
-      :description="getValue">
+    <el-alert v-if="$store.state.payments.length" :closable="false" title="Monthly Spending" type="info" :description="getValue">
     </el-alert>
     <h2>Add an Expense</h2>
-   <section><el-form-item label-position="top" label="Payment Name">
-     <el-input required placeholder="Ex: Netflix" v-model="form.name"></el-input>
-   </el-form-item>
-    <el-form-item label-position="top" label="Price">
+    <section>
+      <el-form-item label-position="top" label="Payment Name">
+        <el-input required placeholder="Ex: Netflix" v-model="form.name"></el-input>
+      </el-form-item>
+      <el-form-item label-position="top" label="Price">
         <el-input required type="number" placeholder="Ex: 10" v-model="form.price"></el-input>
+      </el-form-item>
+      <el-form-item label-position="top" label="Frequency of Payment">
+        <el-select required classname="select" size="large" filterable v-model="form.period" placeholder="Select Frequency">
+          <el-option v-for="item in $store.state.periods" :key="item.value" :label="item.label" :value="item.value">
+          </el-option>
+        </el-select>
+      </el-form-item>
+    </section>
+    <el-form-item>
+      <el-button type="primary" @click="onSubmit">Add</el-button>
     </el-form-item>
-    <el-form-item label-position="top" label="Frequency of Payment">
-      <el-select required classname="select" size="large" filterable v-model="form.period" placeholder="Select Frequency">
-        <el-option
-          v-for="item in $store.state.periods"
-          :key="item.value"
-          :label="item.label"
-          :value="item.value">
-        </el-option>
-    </el-select>
-  </el-form-item>
-  </section>
-  <el-form-item>
-    <el-button type="primary" @click="onSubmit">Add</el-button>
-  </el-form-item>
   </el-form>
 </template>
 

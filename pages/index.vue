@@ -1,23 +1,30 @@
 <template>
-    <el-row :gutter="20" type="flex" justify="center">
-      <el-col :md="18" :sm="22">
-        <Form />
-        <h2 class="expenses">Subscriptions</h2>
-        <el-row v-if="loading"  type="flex" justify="center"><ClipLoader color="#2b487a" /></el-row>
-        <el-col v-if="!loading" :md="12" :sm="24"  v-for="payment in $store.state.payments" v-bind:key="payment.id">
-          <el-card style="margin-bottom: 20px" shadow="hover">
-              <div slot="header">
-                <el-row type="flex" justify="space-between">
-                    <b>{{ payment.name }}</b>
-                    <el-button @click="$store.commit('removePayment', payment.id)" style="float: right; padding: 3px 0" type="text">Remove</el-button>
-                </el-row>
-              </div>
-            <p>Price: <b>{{ payment.price }}$</b></p>
-            <p>Frequency: <b>{{ $store.getters.getFrequency(payment.period) }}</b></p>
-          </el-card>
-        </el-col>
+  <el-row :gutter="20" type="flex" justify="center">
+    <el-col :md="18" :sm="22">
+      <Form />
+      <h2 class="expenses">Subscriptions</h2>
+      <el-row v-if="loading" type="flex" justify="center">
+        <ClipLoader color="#2b487a" />
+      </el-row>
+      <p v-if="!$store.state.payments.length">No expenses! Good! You did good in life!</p>
+      <el-col v-if="!loading" :md="12" :sm="24" v-for="payment in $store.state.payments" v-bind:key="payment.id">
+        <el-card style="margin-bottom: 20px" shadow="hover">
+          <div slot="header">
+            <el-row type="flex" justify="space-between">
+              <b>{{ payment.name }}</b>
+              <el-button @click="$store.commit('removePayment', payment.id)" style="float: right; padding: 3px 0" type="text">Remove</el-button>
+            </el-row>
+          </div>
+          <p>Price:
+            <b>{{ payment.price }}$</b>
+          </p>
+          <p>Frequency:
+            <b>{{ $store.getters.getFrequency(payment.period) }}</b>
+          </p>
+        </el-card>
+      </el-col>
     </el-col>
-    </el-row>
+  </el-row>
 </template>
 
 <script>
