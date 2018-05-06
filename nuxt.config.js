@@ -16,7 +16,14 @@ module.exports = {
   ** Global CSS
   */
   css: ['element-ui/lib/theme-chalk/index.css'],
-
+  modules: [
+    [
+      '@nuxtjs/google-analytics',
+      {
+        id: 'UA-37411302-7'
+      }
+    ]
+  ],
   /*
   ** Add element-ui in our app, see plugins/element-ui.js file
   */

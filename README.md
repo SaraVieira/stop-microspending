@@ -1,22 +1,23 @@
-# stop-microspending
+# Stop Microspending
 
-> Nuxt.js project
+I needed this in my life so I made a small app that is very simple with Vue and let's you add small expenses that you make every month, year or wtv and adds it.
+
+I needed this because I keep buying stuff that is montlhy without realizing how much it adds up to.
+
+ANY HELP AT MAKING THIS PRETTIER WILL BE MET WITH EXTREME GRATITUDE
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
-$ npm install # Or yarn install
+$ yarn install
 
 # serve with hot reload at localhost:3000
-$ npm run dev
+$ yarn dev
 
 # build for production and launch server
-$ npm run build
-$ npm start
-
-# generate static project
-$ npm run generate
+$ yarn build
+$ yarn start
 ```
 
-For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
+Built with [Nuxt.js](https://github.com/nuxt/nuxt.js).
