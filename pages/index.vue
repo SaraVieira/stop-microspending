@@ -1,10 +1,10 @@
 <template>
     <el-row :gutter="20" type="flex" justify="center">
-      <el-col :span="18">
+      <el-col :md="18" :sm="22">
         <Form />
         <h2 class="expenses">Subscriptions</h2>
         <el-row v-if="loading"  type="flex" justify="center"><ClipLoader color="#2b487a" /></el-row>
-        <el-col v-if="!loading" :span="12" v-for="payment in $store.state.payments" v-bind:key="payment.id">
+        <el-col v-if="!loading" :md="12" :sm="24"  v-for="payment in $store.state.payments" v-bind:key="payment.id">
           <el-card style="margin-bottom: 20px" shadow="hover">
               <div slot="header">
                 <el-row type="flex" justify="space-between">

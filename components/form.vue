@@ -74,6 +74,10 @@ section {
     & > div {
         flex-basis: 30%;
     }
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+    }
 }
 .el-select {
     width: 100%;
