@@ -20,10 +20,7 @@ module.exports = {
   /*
   ** Add element-ui in our app, see plugins/element-ui.js file
   */
-  plugins: [
-    '@/plugins/element-ui',
-    { src: '~/plugins/localStorage.js', ssr: false }
-  ],
+  plugins: ['@/plugins/element-ui'],
   /*
   ** Customize the progress bar color
   */
@@ -32,6 +29,17 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    babel: {
+      plugins: [
+        [
+          'component',
+          {
+            libraryName: 'element-ui',
+            styleLibraryName: 'theme-chalk'
+          }
+        ]
+      ]
+    },
     /*
     ** Run ESLint on save
     */

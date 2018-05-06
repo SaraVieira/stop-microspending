@@ -18,10 +18,11 @@
     "element-ui": "^2.3.7",
     "nuxt": "^1.0.0",
     "uuid": "^3.2.1",
-    "vuex-persistedstate": "^2.5.2"
+    "vue-spinner": "^1.0.3"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
+    "babel-plugin-component": "^1.1.0",
     "eslint": "^4.15.0",
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^1.7.1",

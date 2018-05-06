@@ -1,39 +1,46 @@
 <template>
-    <el-row gutter="20" type="flex" justify="center">
+    <el-row :gutter="20" type="flex" justify="center">
       <el-col :span="18">
-      <Form />
-      <h2 class="expenses">Subscriptions</h2>
-      <el-col :span="12" v-for="payment in $store.state.payments" v-bind:key="payment.id">
-        <transition name="el-fade-in">
+        <Form />
+        <h2 class="expenses">Subscriptions</h2>
+        <el-row v-if="loading"  type="flex" justify="center"><ClipLoader color="#2b487a" /></el-row>
+        <el-col v-if="!loading" :span="12" v-for="payment in $store.state.payments" v-bind:key="payment.id">
           <el-card style="margin-bottom: 20px" shadow="hover">
-          <div slot="header">
-            <el-row type="flex" justify="space-between">
-                <b>{{ payment.name }}</b>
-                <el-button @click="$store.commit('removePayment', payment.id)" style="float: right; padding: 3px 0" type="text">Remove</el-button>
-            </el-row>
-          </div>
-          <p>Price: <b>{{ payment.price }}$</b></p>
-          <p>Frequency: <b>{{ $store.getters.getFrequency(payment.period) }}</b></p>
-        </el-card></transition>
-      </el-col>
+              <div slot="header">
+                <el-row type="flex" justify="space-between">
+                    <b>{{ payment.name }}</b>
+                    <el-button @click="$store.commit('removePayment', payment.id)" style="float: right; padding: 3px 0" type="text">Remove</el-button>
+                </el-row>
+              </div>
+            <p>Price: <b>{{ payment.price }}$</b></p>
+            <p>Frequency: <b>{{ $store.getters.getFrequency(payment.period) }}</b></p>
+          </el-card>
+        </el-col>
     </el-col>
     </el-row>
-
 </template>
 
 <script>
+import ClipLoader from 'vue-spinner/src/ClipLoader.vue';
 import Form from '~/components/Form.vue';
+import { localStorage } from '../store/index';
 
 export default {
     components: {
-        Form
+        Form,
+        ClipLoader
     },
     data() {
         return {
-            loading: !this.$store.state.payments.length
+            loading: true
         };
     },
-    methods: {}
+    mounted: function() {
+        this.$nextTick(function() {
+            this.$store.commit('createPayments', localStorage.get());
+            this.loading = false;
+        });
+    }
 };
 </script>
 <style lang="scss">

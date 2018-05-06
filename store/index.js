@@ -1,6 +1,19 @@
 import Vuex from 'vuex';
 import uuidv4 from 'uuid/v4';
 
+const NAME = 'stop-microspensing';
+
+export const localStorage = {
+  set: obj =>
+    typeof window === 'undefined'
+      ? {}
+      : window.localStorage.setItem(NAME, JSON.stringify(obj)),
+  get: () =>
+    typeof window === 'undefined'
+      ? []
+      : JSON.parse(window.localStorage.getItem(NAME))
+};
+
 const createStore = () => {
   return new Vuex.Store({
     state: {
@@ -14,13 +27,18 @@ const createStore = () => {
       payments: []
     },
     mutations: {
+      createPayments(state, payments) {
+        state.payments = payments;
+      },
       addPayment(state, newPayment) {
         newPayment.id = uuidv4();
         newPayment.price = parseFloat(newPayment.price);
         state.payments = state.payments.concat(newPayment);
+        localStorage.set(state.payments);
       },
       removePayment(state, id) {
         state.payments = state.payments.filter(payment => payment.id !== id);
+        localStorage.set(state.payments);
       }
     },
     getters: {
