@@ -11,12 +11,15 @@ module.exports = {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
-  modules: ['@nuxtjs/pwa'],
+  manifest: {
+    name: 'Stop Microspending'
+  },
   /*
   ** Global CSS
   */
   css: ['element-ui/lib/theme-chalk/index.css'],
   modules: [
+    '@nuxtjs/pwa',
     [
       '@nuxtjs/google-analytics',
       {
