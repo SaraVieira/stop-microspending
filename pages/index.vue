@@ -29,7 +29,7 @@
 
 <script>
 import ClipLoader from 'vue-spinner/src/ClipLoader.vue';
-import Form from '~/components/Form.vue';
+import Form from '~/components/form.vue';
 import localStorage from '~/plugins/localStorage';
 
 export default {
@@ -70,4 +70,3 @@ export default {
     }
 }
 </style>
-
