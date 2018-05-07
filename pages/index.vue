@@ -7,7 +7,7 @@
         <ClipLoader color="#2b487a" />
       </el-row>
       <p v-if="!($store.state.payments || []).length && !loading">No expenses! Good! You did good in life!</p>
-      <el-col v-if="!loading" :md="12" :sm="24" v-for="payment in $store.state.payments" v-bind:key="payment.id">
+      <el-col v-if="!loading" :md="12" :sm="24" v-for="payment in payments" v-bind:key="payment.id">
         <el-card style="margin-bottom: 20px" shadow="hover">
           <div slot="header">
             <el-row type="flex" justify="space-between">
@@ -31,6 +31,7 @@
 import ClipLoader from 'vue-spinner/src/ClipLoader.vue';
 import Form from '~/components/form';
 import localStorage from '~/plugins/localStorage';
+import { mapState } from 'vuex'
 
 export default {
     components: {
@@ -47,7 +48,12 @@ export default {
             this.$store.commit('createPayments', localStorage.get());
             this.loading = false;
         });
-    }
+    },
+    computed: {
+      ...mapState({
+        payments: state => state.payments
+      })
+    },
 };
 </script>
 <style lang="scss">
