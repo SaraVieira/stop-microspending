@@ -37,7 +37,7 @@ export default {
     computed: {
         getValue() {
             return `${
-                this.$store.getters.getTotalSpending
+                this.$store.getters.getTotalSpending.toLocaleString({style: 'currency'})
             }$! That is a lot of money!`;
         }
     },
