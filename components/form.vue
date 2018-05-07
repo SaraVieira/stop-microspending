@@ -8,17 +8,17 @@
         <el-input required placeholder="Ex: Netflix" v-model="form.name"></el-input>
       </el-form-item>
       <el-form-item label-position="top" label="Price">
-        <el-input required type="number" placeholder="Ex: 10" v-model="form.price"></el-input>
+        <el-input @input.native="change" required type="number" placeholder="Ex: 10" max="9999" v-model="form.price"></el-input>
       </el-form-item>
       <el-form-item label-position="top" label="Frequency of Payment">
-        <el-select required classname="select" size="large" filterable v-model="form.period" placeholder="Select Frequency">
+        <el-select no-match-text="No matching frequencies" required classname="select" size="large" filterable v-model="form.period" placeholder="Select Frequency">
           <el-option v-for="item in $store.state.periods" :key="item.value" :label="item.label" :value="item.value">
           </el-option>
         </el-select>
       </el-form-item>
     </section>
     <el-form-item>
-      <el-button type="primary" @click="onSubmit">Add</el-button>
+      <el-button :disabled="disabled" type="primary" @click="onSubmit">Add</el-button>
     </el-form-item>
   </el-form>
 </template>
@@ -28,26 +28,32 @@ export default {
     data() {
         return {
             form: {
-                name: '',
-                period: '',
-                price: ''
+                name: null,
+                period: null,
+                price: null
             }
         };
     },
     computed: {
         getValue() {
             return `${
-                this.$store.getters.getTotalSpending.toLocaleString({style: 'currency'})
+                this.$store.getters.getTotalSpending
             }$! That is a lot of money!`;
+        },
+        disabled() {
+            return !(this.form.name && this.form.price && this.form.period);
         }
     },
     methods: {
-        onSubmit() {
-            const values = Object.assign({}, this.form);
-            this.$store.commit('addPayment', values);
+        clearForm() {
             this.form.name = '';
             this.form.price = '';
             this.form.period = '';
+        },
+        onSubmit() {
+            const values = Object.assign({}, this.form);
+            this.$store.commit('addPayment', values);
+            this.clearForm();
 
             this.$notify({
                 title: 'Added',
