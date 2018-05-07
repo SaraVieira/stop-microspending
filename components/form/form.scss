@@ -1,0 +1,24 @@
+.inputs {
+    display: flex;
+    justify-content: space-between;
+
+    & > div {
+        flex-basis: 30%;
+    }
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+    }
+}
+.el-select {
+    width: 100%;
+}
+
+.el-alert.el-alert--error {
+    margin: 10px 0;
+    margin-bottom: 0;
+
+    & .el-alert__title {
+        font-size: 12px;
+    }
+}
