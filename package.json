@@ -15,9 +15,7 @@
   "dependencies": {
     "@nuxtjs/google-analytics": "^2.0.2",
     "@nuxtjs/pwa": "^2.0.8",
-    "currency-data": "^1.0.0",
     "element-ui": "^2.3.7",
-    "favicon": "^0.0.2",
     "nuxt": "^1.0.0",
     "uuid": "^3.2.1",
     "vue-spinner": "^1.0.3"
