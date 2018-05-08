@@ -40,7 +40,7 @@ const createStore = () => {
       },
       getFrequency: state => value => {
         const frequency = state.periods.find(p => p.value === value);
-        return frequency && frequency.label ? frequency.label : '';
+        return frequency.label;
       },
       getFrequencyValue: state => label => {
         const frequency = state.periods.find(p => p.label === label);
