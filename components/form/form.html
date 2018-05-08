@@ -13,7 +13,7 @@
     </el-form-item>
     <el-form-item prop="period" label-position="top" label="Frequency of Payment">
       <el-select no-match-text="No matching frequencies" required classname="select" size="large" filterable v-model="form.period" placeholder="Select Frequency">
-        <el-option v-for="item in $store.state.periods" :key="item.value" :label="item.label" :value="item.value">
+        <el-option v-for="item in periods" :key="item.value" :label="item.label" :value="item.value">
         </el-option>
       </el-select>
     </el-form-item>

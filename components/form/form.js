@@ -1,3 +1,5 @@
+import { mapState } from 'vuex'
+
 export default {
     data() {
         var checkNumberisPositive = (rule, value, callback) => {
@@ -55,7 +57,10 @@ export default {
         },
         disabled() {
             return !(this.form.name && this.form.price && this.form.period);
-        }
+        },
+        ...mapState({
+          periods: state => state.periods,
+        })
     },
     methods: {
         clearForm() {
