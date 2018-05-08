@@ -10,7 +10,7 @@ const createStore = () => {
         { value: 1, label: 'Monthly' },
         { value: 0.5, label: 'Twice a Month' },
         { value: 0.25, label: 'Weekly' },
-        { value: 30, label: 'Daily' }
+        { value: 0.033, label: 'Daily' }
       ],
       payments: []
     },
