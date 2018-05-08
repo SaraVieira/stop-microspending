@@ -29,7 +29,7 @@
 
 <script>
 import ClipLoader from 'vue-spinner/src/ClipLoader.vue';
-const Form = () => System.import('~/components/form');
+import Form from '~/components/form';
 import localStorage from '~/plugins/localStorage';
 import { mapState } from 'vuex'
 
