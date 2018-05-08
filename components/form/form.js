@@ -1,31 +1,3 @@
-<template>
-  <el-form :rules="rules" ref="form" :model="form">
-    <el-alert v-if="$store.state.payments.length" :closable="false" title="Monthly Spending" type="info" :description="getValue">
-    </el-alert>
-    <h2>Add an Expense</h2>
-    <el-alert v-if="form.invalid" title="There are some problems in your form" type="error">
-    </el-alert>
-    <section class="inputs">
-      <el-form-item prop="name" label-position="top" label="Payment Name/Website">
-        <el-input required placeholder="Ex: Netflix" v-model="form.name"></el-input>
-      </el-form-item>
-      <el-form-item prop="price" label-position="top" label="Price">
-        <el-input required type="number" placeholder="Ex: 10" :min="0" v-model="form.price"></el-input>
-      </el-form-item>
-      <el-form-item prop="period" label-position="top" label="Frequency of Payment">
-        <el-select no-match-text="No matching frequencies" required classname="select" size="large" filterable v-model="form.period" placeholder="Select Frequency">
-          <el-option v-for="item in $store.state.periods" :key="item.value" :label="item.label" :value="item.value">
-          </el-option>
-        </el-select>
-      </el-form-item>
-    </section>
-    <el-form-item>
-      <el-button :disabled="disabled" type="primary" @click="onSubmit">Add</el-button>
-    </el-form-item>
-  </el-form>
-</template>
-
-<script>
 export default {
     data() {
         var checkNumberisPositive = (rule, value, callback) => {
@@ -112,30 +84,3 @@ export default {
         }
     }
 };
-</script>
-<style lang="scss">
-.inputs {
-    display: flex;
-    justify-content: space-between;
-
-    & > div {
-        flex-basis: 30%;
-    }
-
-    @media (max-width: 600px) {
-        flex-direction: column;
-    }
-}
-.el-select {
-    width: 100%;
-}
-
-.el-alert.el-alert--error {
-    margin: 10px 0;
-    margin-bottom: 0;
-
-    & .el-alert__title {
-        font-size: 12px;
-    }
-}
-</style>
