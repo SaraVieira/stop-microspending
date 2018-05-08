@@ -2,7 +2,7 @@
 
 I needed this in my life so I made a small app that is very simple with Vue and let's you add small expenses that you make every month, year or wtv and adds it.
 
-I needed this because I keep buying stuff that is montlhy without realizing how much it adds up to.
+I needed this because I keep buying stuff that is monthly without realizing how much it adds up to.
 
 ANY HELP AT MAKING THIS PRETTIER WILL BE MET WITH EXTREME GRATITUDE
 
