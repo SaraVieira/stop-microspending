@@ -4,7 +4,7 @@ export default {
       (acc, payment) => acc + payment.price / payment.period,
       0
     );
-    return parseFloat(value).toFixed(2);
+    return value;
   },
   getFrequency: state => value => {
     const frequency = state.periods.find(p => p.value === value);

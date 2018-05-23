@@ -20,6 +20,9 @@ const createStore = () => {
       removePayment(state, id) {
         state.payments = state.payments.filter(payment => payment.id !== id);
         localStorage.set(state.payments);
+      },
+      changeCurrency(state, newCurrency) {
+        state.currency = newCurrency;
       }
     },
     getters

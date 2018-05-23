@@ -1,3 +1,7 @@
 import Vue from 'vue';
 
-Vue.filter('currency', val => `${parseFloat(val).toFixed(2)}$`);
+const formatCurrency = (val, currency) => val.toLocaleString(currency.locale, { style: 'currency', currency: currency.currency }); 
+
+Vue.filter('currency', formatCurrency);
+
+export default formatCurrency;
