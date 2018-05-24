@@ -1,5 +1,5 @@
 <div class="currency">
-  <el-select required classname="select" size="small" v-model="currency" @input="setCurrency" placeholder="Select Currency">
+  <el-select required classname="select" size="mini" :value="currency.currency" @input="setCurrency" placeholder="Select Currency">
     <el-option v-for="item in currencies" :key="item.currency" :label="item.symbol" :value="item.currency"></el-option>
   </el-select>
 </div>

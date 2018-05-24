@@ -46,6 +46,7 @@ export default {
     mounted: function() {
         this.$nextTick(function() {
             this.$store.commit('createPayments', localStorage.get());
+            this.$store.commit('changeCurrency', localStorage.getCurrency())
             this.loading = false;
         });
     },
