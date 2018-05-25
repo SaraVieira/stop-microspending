@@ -1,4 +1,5 @@
 import StoreStatus from './status'
+import Currencies from './currencies'
 
 export const InitialState = {
   periods: [
@@ -9,5 +10,7 @@ export const InitialState = {
     { value: 0.033, label: 'Daily' }
   ],
   payments: [],
-  status: StoreStatus.init
+  status: StoreStatus.init,
+  currencies: Currencies,
+  currency: Currencies.USD
 }

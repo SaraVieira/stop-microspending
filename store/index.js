@@ -3,6 +3,7 @@ import uuidv4 from 'uuid/v4';
 import localStorage from '~/plugins/localStorage';
 import state from './state';
 import getters from './getters';
+import currencies from './currencies'
 
 const createStore = () => {
   return new Vuex.Store({
@@ -20,6 +21,10 @@ const createStore = () => {
       removePayment(state, id) {
         state.payments = state.payments.filter(payment => payment.id !== id);
         localStorage.set(state.payments);
+      },
+      changeCurrency(state, newCurrency = currencies.USD) {
+        state.currency = newCurrency;
+        localStorage.setCurrency(state.currency);
       }
     },
     getters

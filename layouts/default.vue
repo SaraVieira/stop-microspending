@@ -2,6 +2,7 @@
   <el-container>
     <el-header height="150px">
       <Logo />
+      <Currency />
     </el-header>
     <el-main>
       <nuxt/>
@@ -12,10 +13,12 @@
 
 <script>
 import Logo from '~/components/Logo';
+import Currency from '~/components/Currency';
 
 export default {
     components: {
-        Logo
+        Logo,
+        Currency
     }
 };
 </script>

@@ -1,4 +1,5 @@
 import { mapState } from 'vuex'
+import formatCurrency from '~/plugins/currency';
 
 export default {
     data() {
@@ -52,8 +53,8 @@ export default {
     computed: {
         getValue() {
             return `${
-                this.$store.getters.getTotalSpending
-            }$! That is a lot of money!`;
+                formatCurrency(this.$store.getters.getTotalSpending, this.$store.state.currency)
+            }! That is a lot of money!`;
         },
         disabled() {
             return !(this.form.name && this.form.price && this.form.period);

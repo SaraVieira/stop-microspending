@@ -16,7 +16,7 @@
             </el-row>
           </div>
           <p>Price:
-            <b>{{ payment.price | currency }}</b>
+            <b>{{ payment.price | currency($store.state.currency) }}</b>
           </p>
           <p>Frequency:
             <b>{{ $store.getters.getFrequency(payment.period) }}</b>
@@ -46,6 +46,7 @@ export default {
     mounted: function() {
         this.$nextTick(function() {
             this.$store.commit('createPayments', localStorage.get());
+            this.$store.commit('changeCurrency', localStorage.getCurrency())
             this.loading = false;
         });
     },
