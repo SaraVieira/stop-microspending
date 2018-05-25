@@ -3,4 +3,5 @@ export default {
     EUR: { locale: 'fr-FR', currency: 'EUR', symbol: '€' },
     JPY: { locale: 'ja-JP', currency: 'JPY', symbol: '¥' },
     GBP: { locale: 'en-EN', currency: 'GBP', symbol: '£' },
+    INR: { locale: 'en-IN', currency: 'INR', symbol: '₹' },
 }
