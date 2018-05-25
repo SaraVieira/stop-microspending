@@ -17,6 +17,7 @@
     "@nuxtjs/pwa": "^2.0.8",
     "element-ui": "^2.3.7",
     "nuxt": "^1.0.0",
+    "nuxt-social-meta": "^0.0.1",
     "uuid": "^3.2.1",
     "vue-spinner": "^1.0.3"
   },
