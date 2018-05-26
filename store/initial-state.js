@@ -1,9 +1,10 @@
-import StoreStatus from './status'
-import Currencies from './currencies'
+import StoreStatus from './status';
+import Currencies from './currencies';
 
 export const InitialState = {
   periods: [
     { value: 12, label: 'Yearly' },
+    { value: 3, label: 'Quarterly' },
     { value: 1, label: 'Monthly' },
     { value: 0.5, label: 'Twice a Month' },
     { value: 0.25, label: 'Weekly' },
@@ -13,4 +14,4 @@ export const InitialState = {
   status: StoreStatus.init,
   currencies: Currencies,
   currency: Currencies.USD
-}
+};
